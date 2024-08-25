@@ -1,0 +1,23 @@
+.pb-12 {
+  transition: background-color 270ms linear;
+}
+
+#red {
+  background-color: #900;
+}
+
+#green {
+  background-color: #090;
+}
+
+#blue {
+  background-color: #009;
+}
+
+#purple {
+  background-color: purple;
+}
+
+#orange {
+  background-color: orange;
+}

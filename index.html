@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang=en>
+
+<head>
+  <meta charset=utf-8>
+  <meta http-equiv=X-UA-Compatible content="IE=edge">
+  <meta name=viewport content="width=device-width,initial-scale=1">
+  <link rel=stylesheet href=https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css
+    integrity=sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm crossorigin=anonymous>
+  <script src=https://unpkg.com/vue-select@latest></script>
+  <link rel=stylesheet href=https://unpkg.com/vue-select@latest/dist/vue-select.css>
+
+  <!-- Change the value below to change the title of the tab -->
+  <title>Interactive CYOA</title>
+
+  <!-- Get rid of the surrounding tags of the object below in order to upload
+  your own custom icon -->
+
+  <!--
+  <link rel=icon href=/favicon.ico>
+  -->
+
+  <link rel=stylesheet href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900">
+  <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@mdi/font@latest/css/materialdesignicons.min.css>
+  <link href=css/app.df7ca14c.css rel=preload as=style>
+  <link href=css/chunk-vendors.58637379.css rel=preload as=style>
+  <link href=js/app.c533aa25.js rel=preload as=script>
+  <link href=js/chunk-vendors.59af3576.js rel=preload as=script>
+  <link href=css/chunk-vendors.58637379.css rel=stylesheet>
+  <link href=css/app.df7ca14c.css rel=stylesheet>
+
+  <!--
+    Uncomment the imports below in order to use a dynamically changing
+    background.
+
+    To learn more, see here:
+    https://icctutorial.pages.dev/appendix/reference/#make-the-background-different-for-each-row
+  -->
+
+  <!-- 
+  <link href="css/dynamic-background.css" rel=stylesheet>
+  <script src="js/dynamic-background.js"/>
+  -->
+
+  <style>
+    /*
+     * If you want your backgrounds to be static/still, delete the slashes and
+     * asterisks surrounding the `.pb-12` class below.
+     */
+
+    /*
+    .pb-12 {
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+    */
+
+
+    /* 
+     * If you want your icons to be white (or any other colour), delete the
+     * slashes and asterisks surrounding the `.v-icon` class below.
+     */
+
+    /*
+    .v-icon {
+      color: white !important;
+    }
+    */
+
+
+    /* 
+     * If you want to set the background of your CYOA in this HTML file rather
+     * than the `project.json`, uncomment the below lines
+     */
+
+     /* 
+     .pb-12 {
+       background-image: url("YOUR URL HERE") !important;
+     }
+     */
+  </style>
+</head>
+
+<body>
+  <noscript>
+    <strong>
+      We're sorry but the CYOA doesn't work properly without JavaScript
+      enabled. Please enable it to continue.
+    </strong>
+  </noscript>
+  <div id="indicator">
+    <script>
+      {
+        let _XHR = XMLHttpRequest;
+        XMLHttpRequest = class XHR extends _XHR {
+          constructor() {
+            super();
+            this.addEventListener('progress', e => {
+              indicator.innerText = " Loading data: " + (
+                !e.total ?
+                `${(e.loaded/1024**2).toFixed(1)} MB` :
+                `${(100 * e.loaded / e.total).toFixed(2)}%`
+              )
+            });
+            this.addEventListener('loadend', () => {
+              indicator.innerText = ""
+            });
+
+          }
+        }
+      }
+    </script>
+  </div>
+  <div id=app></div>
+  <script src=js/chunk-vendors.59af3576.js></script>
+  <script src=js/app.c533aa25.js></script>
+</body>
+
+</html>
